@@ -1,0 +1,12 @@
+=== 1. Количество строк в таблицах ===
+  dim_product       : 32951
+  dim_customer      : 99441
+  dim_seller        : 3095
+  dim_date          : 774
+  fact_order_items  : 112650
+
+=== 2. Проверка пустых ключей в fact_order_items ===
+  NULL keys count: (0, 0, 0, 0, 0, 0)
+
+=== 3. Главная мера (revenue по delivered) ===
+  delivered_items=110197, revenue=13221498.11, freight_total=2198275.64
