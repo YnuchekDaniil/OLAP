@@ -1,0 +1,16 @@
+﻿Выбран реальный товар Olist: product_id = aca2eb7d00ea1a7b8ebd4e68314663af
+Симуляция смены категории с 2018-01-01: 'furniture_decor' -> 'furniture_decor_reclassified'
+
+=== Запрос 1: -- 1. Запрос, где видны две версии одного товара в dim_product_scd2 ===
+product_sk | product_id                       | product_category_name_english | valid_from | valid_to   | is_current
+-----------+----------------------------------+-------------------------------+------------+------------+-----------
+22113      | aca2eb7d00ea1a7b8ebd4e68314663af | furniture_decor               | 2016-01-01 | 2017-12-31 | False     
+32952      | aca2eb7d00ea1a7b8ebd4e68314663af | furniture_decor_reclassified  | 2018-01-01 | 9999-12-31 | True      
+
+=== Запрос 2: -- 2. Как факт попадает в нужную версию товара на дату события (as-of date join) ===
+product_sk | product_id                       | product_category_name_english | valid_from | valid_to   | is_current | order_items_count | revenue 
+-----------+----------------------------------+-------------------------------+------------+------------+------------+-------------------+---------
+22113      | aca2eb7d00ea1a7b8ebd4e68314663af | furniture_decor               | 2016-01-01 | 2017-12-31 | False      | 111               | 8325.00 
+32952      | aca2eb7d00ea1a7b8ebd4e68314663af | furniture_decor_reclassified  | 2018-01-01 | 9999-12-31 | True       | 409               | 28779.30
+
+Контроль без SCD2-джойна по факту: rows=520, revenue=37104.30

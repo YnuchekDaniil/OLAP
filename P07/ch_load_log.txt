@@ -1,0 +1,37 @@
+﻿[2026-11-12 23:09:18] ClickHouse ping: Ok. (источник DuckDB: P05\olist_dw_p05.duckdb)
+[2026-11-12 23:09:18] Шаг 1/3: Применяем DDL (sql/ddl_clickhouse.sql)
+[2026-11-12 23:09:18] Шаг 2/3: TRUNCATE + загрузка таблиц в olist_dw
+[2026-11-12 23:09:19]   Загружена таблица olist_dw.dim_product: 32951 строк
+[2026-11-12 23:09:20]   Загружена таблица olist_dw.dim_customer: 99441 строк
+[2026-11-12 23:09:20]   Загружена таблица olist_dw.dim_seller: 3095 строк
+[2026-11-12 23:09:20]   Загружена таблица olist_dw.dim_date: 774 строк
+[2026-11-12 23:09:22]   Загружена таблица olist_dw.fact_order_items: 112650 строк
+[2026-11-12 23:09:22] Шаг 3/3: Сверка DuckDB <-> ClickHouse
+[2026-11-12 23:09:22] === Сверка DuckDB <-> ClickHouse: COUNT(*) по таблицам ===
+  [OK] dim_product        | DuckDB=32951    | ClickHouse=32951    | diff=0
+  [OK] dim_customer       | DuckDB=99441    | ClickHouse=99441    | diff=0
+  [OK] dim_seller         | DuckDB=3095     | ClickHouse=3095     | diff=0
+  [OK] dim_date           | DuckDB=774      | ClickHouse=774      | diff=0
+  [OK] fact_order_items   | DuckDB=112650   | ClickHouse=112650   | diff=0
+[2026-11-12 23:09:22] === Сверка эталонной метрики (canonical_metric.sql) ===
+  [OK] revenue (delivered) | DuckDB=13221498.11 | ClickHouse=13221498.11 | diff=0.00
+[2026-11-12 23:09:22] Загрузка и сверка в ClickHouse завершены успешно.
+
+[2026-11-12 23:09:30] ClickHouse ping: Ok. (источник DuckDB: P05\olist_dw_p05.duckdb)
+[2026-11-12 23:09:30] Шаг 1/3: Применяем DDL (sql/ddl_clickhouse.sql)
+[2026-11-12 23:09:30] Шаг 2/3: TRUNCATE + загрузка таблиц в olist_dw
+[2026-11-12 23:09:30]   Загружена таблица olist_dw.dim_product: 32951 строк
+[2026-11-12 23:09:31]   Загружена таблица olist_dw.dim_customer: 99441 строк
+[2026-11-12 23:09:31]   Загружена таблица olist_dw.dim_seller: 3095 строк
+[2026-11-12 23:09:31]   Загружена таблица olist_dw.dim_date: 774 строк
+[2026-11-12 23:09:34]   Загружена таблица olist_dw.fact_order_items: 112650 строк
+[2026-11-12 23:09:34] Шаг 3/3: Сверка DuckDB <-> ClickHouse
+[2026-11-12 23:09:34] === Сверка DuckDB <-> ClickHouse: COUNT(*) по таблицам ===
+  [OK] dim_product        | DuckDB=32951    | ClickHouse=32951    | diff=0
+  [OK] dim_customer       | DuckDB=99441    | ClickHouse=99441    | diff=0
+  [OK] dim_seller         | DuckDB=3095     | ClickHouse=3095     | diff=0
+  [OK] dim_date           | DuckDB=774      | ClickHouse=774      | diff=0
+  [OK] fact_order_items   | DuckDB=112650   | ClickHouse=112650   | diff=0
+[2026-11-12 23:09:34] === Сверка эталонной метрики (canonical_metric.sql) ===
+  [OK] revenue (delivered) | DuckDB=13221498.11 | ClickHouse=13221498.11 | diff=0.00
+[2026-11-12 23:09:34] Загрузка и сверка в ClickHouse завершены успешно.
