@@ -2,11 +2,12 @@ services:
   clickhouse:
     image: clickhouse/clickhouse-server:24.12
     container_name: olap_clickhouse
+    environment:
+      CLICKHOUSE_SKIP_USER_SETUP: "1"
     ports:
       - "8123:8123"
       - "9000:9000"
     volumes:
-      # DDL + sample: только scripts/init_ch.sh (ClickHouse не использует initdb.d)
       - ch_data:/var/lib/clickhouse
     ulimits:
       nofile:
@@ -18,7 +19,6 @@ services:
       timeout: 3s
       retries: 20
 
-  # Metabase: после первого входа добавьте ClickHouse-драйвер (см. README)
   metabase:
     image: metabase/metabase:v0.52.16
     container_name: olap_metabase

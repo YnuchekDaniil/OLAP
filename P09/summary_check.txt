@@ -1,0 +1,17 @@
+ClickHouse ping: Ok.
+
+=== Сжатие данных ===
+  fact_order_items (delivered): 110197 строк
+  agg_daily_category_sales    : 18808 строк
+
+=== Сверка за весь период (fact vs agg) ===
+  fact_order_items         : revenue=13221498.11, freight=2198275.64, items=110197
+  agg_daily_category_sales : revenue=13221498.11, freight=2198275.64, items=110197
+  diff (revenue)           : 0.00
+
+=== Сверка за контрольный месяц 2017-11 (fact vs agg) ===
+  fact_order_items         : revenue=987765.37, items=8475
+  agg_daily_category_sales : revenue=987765.37, items=8475
+  diff (revenue)           : 0.00
+
+[OK] Сверка пройдена: сводная таблица полностью сходится с fact_order_items.
